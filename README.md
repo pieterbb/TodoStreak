@@ -1,8 +1,10 @@
 <p align="center">
   <picture>
-  <img src="https://github.com/pieterbb/BuildStreak/assets/11728875/b7560a7c-2e7a-4e9a-bc68-c52cefdfb9e4" width="130" alt="Logo for TodoStreak">
+  <img src="https://github.com/pieterbb/TodoStreak/assets/11728875/cf69a1ad-9bfe-42c2-8d9a-b829937f618c" width="130" alt="Logo for TodoStreak">
 </picture>
 </p>
+
+
 
 <h1 align="center">
   TodoStreak
@@ -17,7 +19,7 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 
 <a href="https://www.todostreak.com/" target="_blank">
   <p align="center">
-    <img src="https://github.com/pieterbb/BuildStreak/assets/11728875/d67dd7f6-e9cb-4dfb-bb90-d858fbf8ff5a" alt="TodoStreak Demo" width="420" />
+    <img src="https://github.com/pieterbb/TodoStreak/assets/11728875/f11276df-b827-47de-a64d-330b09ca3a64" alt="TodoStreak Demo" width="420" />
   </p>
 </a>
 
@@ -45,7 +47,8 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 
 🛠️ Modern Tech Stack: Built with the latest technologies including React, Next.js, Tailwind CSS, and more for a sleek, fast experience.
 
-![frontpage_bg](https://github.com/pieterbb/BuildStreak/assets/11728875/101ffdcf-c16e-481b-a0bb-79b35b8ad068)
+![image](https://github.com/pieterbb/TodoStreak/assets/11728875/a30c442d-e229-4cca-a2a7-d5f305f306f1)
+
 
 ## Key Features
 
@@ -69,7 +72,8 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 - [Prisma](https://www.prisma.io/)
 - [Cloudinary](https://cloudinary.com/)
 
-![frontpage_bg](https://github.com/pieterbb/BuildStreak/assets/11728875/8fa831e8-a3ba-4318-94ec-272b163faab7)
+![image](https://github.com/pieterbb/TodoStreak/assets/11728875/51548ce4-2bff-4aca-ad19-f08f329bad1a)
+
 
 ## Quick Start
 
