@@ -12,6 +12,7 @@
 TodoStreak provides a complete Next.js application boilerplate for a social todo app, fully equipped with everything you need, including todo feeds, user profiles, and replies.
 
 You can track your projects, tasks and earn streaks for daily achievements and interact with others through comments and advice in a shared forum.
+
 </p>
 
 <a href="https://www.todostreak.com/" target="_blank">
@@ -29,6 +30,7 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 </a>
 
 ## Why TodoStreak?
+
 🚀 Quick Start: Get your project off the ground without the hassle of setting up boilerplate code.
 
 🔒 Secure Authentication: Offers secure email magic link and social OAuth login options.
@@ -45,8 +47,8 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 
 ![frontpage_bg](https://github.com/pieterbb/BuildStreak/assets/11728875/101ffdcf-c16e-481b-a0bb-79b35b8ad068)
 
-
 ## Key Features
+
 - **Authentication**: E-mail magic link and social OAuth Login
 - **Gamification:** Streaks for gamifying stats
 - **User profiles:** Overview page
@@ -69,41 +71,45 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 
 ![frontpage_bg](https://github.com/pieterbb/BuildStreak/assets/11728875/8fa831e8-a3ba-4318-94ec-272b163faab7)
 
-
 ## Quick Start
 
 1. Clone the repo
-2. Copy the example.env file to a .env file in the root directory of the repo
+2. Copy the .env.example file to a .env file in the root directory of the repo
+
 ```bash
- cp example.env .env
+ cp .env.example .env
 ```
+
 - Replace the placeholder variables in the .env file with your credentials
-	- You need a [Cloudinary](https://cloudinary.com/) API key for image uploads and [TinyMCE API](https://www.tiny.cloud/) key for the WYSIWYG editor 
-	- You need a Postgres database
-		- you can use a free serverless Postgres database from [Neon](https://neon.tech/) for example
-	- You need a SMTP mail server so Next-Auth can send login emails
-		- You can use Gmail, your own SMTP email server or a service like [Postmark](https://postmarkapp.com/smtp-service)
-	- You need [Discord](https://discord.com/developers/applications) & [Google OAuth API](https://support.google.com/cloud/answer/6158849?hl=en) keys for logging in with these platforms
-		- You can also disable them by deleting them from the provider array and deleting the environment variables so you can just use email magic link login
-			```
-			/src/app/api/auth/[...nextauth]/route.ts
-			```
+  - You need a [Cloudinary](https://cloudinary.com/) API key for image uploads and [TinyMCE API](https://www.tiny.cloud/) key for the WYSIWYG editor
+  - You need a Postgres database
+    - you can use a free serverless Postgres database from [Neon](https://neon.tech/) for example
+  - You need a SMTP mail server so Next-Auth can send login emails
+    - You can use Gmail, your own SMTP email server or a service like [Postmark](https://postmarkapp.com/smtp-service)
+  - You need [Discord](https://discord.com/developers/applications) & [Google OAuth API](https://support.google.com/cloud/answer/6158849?hl=en) keys for logging in with these platforms
+    - You can also disable them by deleting them from the provider array and deleting the environment variables so you can just use email magic link login
+      ```
+      /src/app/api/auth/[...nextauth]/route.ts
+      ```
 
 3. **OPTIONAL:** Set the root domain name you are using for your production deployment by setting `NEXT_PUBLIC_BASE_URL:`
-	```
-	/src/app/api/auth/[...nextauth]/route.ts
-	```
 
-	```Javascript
-	NEXT_PUBLIC_BASE_URL: process.env.VERCEL
-	  ? process.env.VERCEL_ENV === 'production'
-		? 'https://www.YOURDOMAIN.com'
-		: `https://${process.env.VERCEL_URL}`
-	  : 'http://localhost:3000',
-	```
- 	Replace 'yourdomain.com' with the domain you want to use.
+   ```
+   /src/app/api/auth/[...nextauth]/route.ts
+   ```
+
+   ```Javascript
+   NEXT_PUBLIC_BASE_URL: process.env.VERCEL
+     ? process.env.VERCEL_ENV === 'production'
+   	? 'https://www.YOURDOMAIN.com'
+   	: `https://${process.env.VERCEL_URL}`
+     : 'http://localhost:3000',
+   ```
+
+   Replace 'yourdomain.com' with the domain you want to use.
 
 4. Run the following commands to install the dependencies, initialise the database and start the development server
+
 ```shell
 npm install
 npm run prisma:migrate
@@ -112,20 +118,23 @@ npm run dev
 ```
 
 5. **OPTIONAL**: Run this to seed the database with dummy data
+
 ```shell
 npx prisma db seed
 ```
 
 6. **OPTIONAL**: Deploy the application on [Vercel](https://vercel.com/)
+
    - If not deploying on Vercel, strip out the Vercel analytics in `package.json` and the root layout
      ```json
      "@vercel/analytics": "^1.0.2",
      "@vercel/speed-insights": "^1.0.1",
      ```
 
-8. That's it, you can now run the application, create an account and do whatever you want. Have fun!
+7. That's it, you can now run the application, create an account and do whatever you want. Have fun!
 
 ## Feature ideas to implement
+
 - Use a component library like Mantine or Shadcn UI
 - Build a custom Login / Logout page
 - Create pagination for the todofeed in the URL, so the position is shareable
@@ -138,7 +147,7 @@ npx prisma db seed
 - Have the todo media open in a lightbox
 - Add (hover) animations in the UI to make it feel more interactive (Framer / Auto animation library)
 - Create a marketing / landing page to explain the platform to new users
--  Create a multi-tenant version so you can sell the platform as a whitelabel platform to businesses (Create your own community basically)
+- Create a multi-tenant version so you can sell the platform as a whitelabel platform to businesses (Create your own community basically)
 - Add dynamic SEO, metadata and OpenGraph Images to the pages
 - Implement optimistic updates to the mutations for a more snappy feel of the app
 - Add a membership and billing feature with Stripe
@@ -155,7 +164,9 @@ npx prisma db seed
 - Dark theme
 
 ## Contributing
+
 Contributions, feedback and bug reports are always welcome. Feel free to open an issue or submit a pull request.
 
 ## Credits
+
 This project is inspired by [Wip.co](https://wip.co/). It's intended as a learning project and not a competitor.
