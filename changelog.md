@@ -1,0 +1,48 @@
+## Changelog
+
+Keep all the made changes here to look back on
+
+- Image upload to settings page
+- Add media banner
+- Add latest user projects to profile
+- Add projects to profile
+- Fix profile box
+- Improve DB seed function
+- Make the upload button on todo item work with cloudinary
+- Fix todo function on todoitem and reply
+- Refactoring ChakraUI to Tailwind UI and change folder structure
+- createTopicReply Prisma queries
+- Auto redirect after creating a new product or topic to the newly creating thing
+- Made recent forum items interactive (question topics overviwe page)
+- Extracted Prisma to global thing
+- avatar component reusabality
+- Created topic page, new topic page and progress on comment system
+- Created util file
+- Renamed and moved stuff around
+- Create endpoint for new topic, update the db scheme for this and make TinyMCE submitting work
+- Hide commentbox and disable like button if user not loggedIn
+- Fixed show as liked if user already liked item before
+- Add displayname to the users session
+- Add likes count to front-end
+- Fix the like query and refactor it using POST and DELETE reqeust in one endpoint
+- Make comment it's own component
+- Reset comment form if send and add comment to item
+- Create comment and scaffold of like prisma query
+- Add new comment on item endpoint
+- Progress on likes and comment on items, frontend and backend and database and schema
+- Added .env example
+- Fixed Vercel production deployment and fixed GitHub production authentication provider
+- Create getRecentProductsOfUserById function in helper file
+- Add create item function to helper file
+- Remove prisma client from nextjs because it's all in the helper file
+- Extract prisma database calls into seperate helper file to re-use logic and seperate concerns
+- Make latest product banner component, make it dynamic by passing down props, add product page link to it
+- Added product page like to product feed item
+- Made username on feeditem clickable now
+- Move questions new page from /new to questions/new
+- Make product page display 15 latest products
+- Fix links in profile actionbar
+- Fixed bio not displaying
+- Render avatar on profile page from data source
+- Fixed addProductForm submit to API
+- Created Changelog

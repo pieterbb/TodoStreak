@@ -1,0 +1,214 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// prisma/schema.prisma
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String        @unique @default(cuid())
+  displayName   String?
+  location      String?
+  bio           String?
+  twitter       String?
+  email         String?        @unique
+  emailVerified DateTime?
+  image         String?
+  profileBanner String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  accounts      Account[]
+  projects      Projects[]
+  todoReplyLikes TodoReplyLikes[]
+  sessions      Session[]
+  todoLikes     TodoLikes[]
+  todoReplies   TodoReplies[]
+  todos         Todos[]
+  topicreplies  TopicReplies[]
+  topicLikes  TopicLikes[]
+  topicReplyLikes  TopicReplyLikes[]
+  topics        Topics[]
+  attachments   Attachments[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Todos {
+  id          String        @id @default(cuid())
+  content     String
+  userId      String
+  done        Boolean       @default(false)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @default(now())
+  completedAt DateTime?
+  attachments Attachments[]
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  projects    Projects[]
+  todoLikes   TodoLikes[]
+  todoReplies TodoReplies[]
+}
+
+model Attachments {
+  id        String   @id @default(cuid())
+  type      String
+  userId    String
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  todoId   String
+  todos     Todos    @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model TodoLikes {
+  id        String   @id @default(cuid())
+  userId    String
+  todoId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  todos     Todos?   @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, todoId])
+}
+
+model TodoReplies {
+  id         String       @id @default(cuid())
+  content    String
+  userId     String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @default(now())
+  todoId     String
+  todos      Todos        @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  todoReplyLikes TodoReplyLikes[]
+}
+
+model TodoReplyLikes {
+  id          String       @id @default(cuid())
+  userId      String
+  replyId     String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now())
+  todoReplies TodoReplies? @relation(fields: [replyId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, replyId])
+}
+
+enum ProjectStatus {
+  active
+  archived
+}
+
+model Projects {
+  id        String   @id @default(cuid())
+  userId    String
+  hashtag   String   @unique
+  name      String   @unique
+  slug      String   @unique
+  pitch     String
+  status    ProjectStatus
+  avatar    String?
+  profileBanner String?
+  website   String?
+  twitter   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  todos     Todos[]
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId, hashtag])
+  @@unique([id, userId])
+
+}
+
+model Topics {
+  id           String         @id @default(cuid())
+  title        String         @unique
+  content      String         @db.VarChar(1024)
+  userId       String
+  category     TopicType
+  slug         String         @unique
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @default(now())
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topicReplies TopicReplies[]
+  topicLikes    TopicLikes[]
+}
+
+model TopicLikes {
+  id          String       @id @default(cuid())
+  userId      String
+  topicId     String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now())
+  topics Topics @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId, topicId])
+}
+
+model TopicReplies {
+  id        String   @id @default(cuid())
+  content   String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  topicId   String
+  topicReplyLikes TopicReplyLikes[]
+  topics    Topics   @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+model TopicReplyLikes {
+  id          String       @id @default(cuid())
+  userId      String
+  topicReplyId     String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now())
+  topicReplies TopicReplies @relation(fields: [topicReplyId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId, topicReplyId])
+}
+
+enum TopicType {
+  questions
+  milestones
+  roasts
+}
