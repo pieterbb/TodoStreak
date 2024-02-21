@@ -4,8 +4,6 @@
 </picture>
 </p>
 
-
-
 <h1 align="center">
   TodoStreak
 </h1>
@@ -49,7 +47,6 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 
 ![image](https://github.com/pieterbb/TodoStreak/assets/11728875/a30c442d-e229-4cca-a2a7-d5f305f306f1)
 
-
 ## Key Features
 
 - **Authentication**: E-mail magic link and social OAuth Login
@@ -73,7 +70,6 @@ You can track your projects, tasks and earn streaks for daily achievements and i
 - [Cloudinary](https://cloudinary.com/)
 
 ![image](https://github.com/pieterbb/TodoStreak/assets/11728875/51548ce4-2bff-4aca-ad19-f08f329bad1a)
-
 
 ## Quick Start
 
@@ -139,7 +135,10 @@ npx prisma db seed
 
 ## Feature ideas to implement
 
+- Create a marketing / landing page to explain the platform to new users
 - Use a component library like Mantine or Shadcn UI
+- Add CSP headers and other basic security features to stop XSS and other attacks
+- Narrow return data from Prisma queries or use DTO Pattern to prevent over-fetching and exposing sensitive data
 - Build a custom Login / Logout page
 - Create pagination for the todofeed in the URL, so the position is shareable
 - Replace TinyMCE with an open source WYSIWYG editor like TipTap
@@ -150,7 +149,6 @@ npx prisma db seed
 - Add a feedback box to the right bottom corner so users can quickly report bugs or suggestions
 - Have the todo media open in a lightbox
 - Add (hover) animations in the UI to make it feel more interactive (Framer / Auto animation library)
-- Create a marketing / landing page to explain the platform to new users
 - Create a multi-tenant version so you can sell the platform as a whitelabel platform to businesses (Create your own community basically)
 - Add dynamic SEO, metadata and OpenGraph Images to the pages
 - Implement optimistic updates to the mutations for a more snappy feel of the app

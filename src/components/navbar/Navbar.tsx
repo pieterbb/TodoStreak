@@ -10,7 +10,7 @@ export default async function Navbar() {
     <div className="mb-8 flex items-center justify-between gap-2 px-1 pt-2 md:px-8">
       <Link href="/">
         <div className="flex cursor-pointer justify-between space-x-2 align-middle">
-          <img className="h-8 w-8" src="/logo.svg" alt="me" />
+          <img className="size-8" src="/logo.svg" alt="me" />
           <div className="text-xl font-bold text-gray-900 ">TodoStreak</div>
         </div>
       </Link>
@@ -33,7 +33,7 @@ export default async function Navbar() {
           </Link>
           <Link href={'/api/auth/signin'}>
             <button className=" h-8 rounded-full bg-green-500  px-4 py-1 text-xs font-medium text-white ">
-              JOIN WIP
+              JOIN TODOSTREAK
             </button>
           </Link>
         </div>
